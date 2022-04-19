@@ -1,24 +1,21 @@
 package ru.javarush.zakharov.cryptoanalizer;
 
-
-
+import ru.javarush.zakharov.cryptoanalizer.controllers.MainController;
+import ru.javarush.zakharov.cryptoanalizer.entity.Menu;
 import ru.javarush.zakharov.cryptoanalizer.entity.Result;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class ConsoleRunner {
     public static void main(String[] args) {
-        System.out.println("Hello maven");
-        //сюда можно добавить чтение файла и
-        String st = "Hello maven";
-        char[] strAr = st.toCharArray();
-        ArrayList<Character> al = new ArrayList<>();
-        for (char c : strAr) {
-            al.add(c);
-        }
-        System.out.println(al);
+        Scanner scanner = new Scanner(System.in);
+        //encode text.txt encode.txt 12
+        Menu menu = new Menu(scanner);
+        MainController mainController = new MainController();
 
-        Application application = new Application();
-        Result result = application.run(args);
+        Application application = new Application(mainController, menu);
+         application.run(args);
+        //System.out.println(result);
     }
 }
