@@ -1,4 +1,5 @@
 package ru.javarush.zakharov.cryptoanalizer.commands;
+import ru.javarush.zakharov.cryptoanalizer.constants.Const;
 import ru.javarush.zakharov.cryptoanalizer.constants.Constants;
 import ru.javarush.zakharov.cryptoanalizer.constants.PathBuilder;
 import ru.javarush.zakharov.cryptoanalizer.entity.Result;
@@ -34,7 +35,7 @@ public abstract class AbstractAction implements Action {
             }
 
         } catch (IOException e) {
-            throw new AppException();//AppException(Constants.INCORRECT_FILE + e.getMessage(), e);
+            throw new AppException(Const.INCORRECT_FILE + e.getMessage(), e);//AppException(Constants.INCORRECT_FILE + e.getMessage(), e);
         }
         return new Result(ResultCode.OK, encryptedFile);
     }

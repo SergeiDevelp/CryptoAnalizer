@@ -1,5 +1,6 @@
 package ru.javarush.zakharov.cryptoanalizer.commands;
 
+import ru.javarush.zakharov.cryptoanalizer.constants.Const;
 import ru.javarush.zakharov.cryptoanalizer.constants.Constants;
 import ru.javarush.zakharov.cryptoanalizer.constants.PathBuilder;
 import ru.javarush.zakharov.cryptoanalizer.entity.Result;
@@ -46,7 +47,7 @@ public class BruteForce extends AbstractAction{
             }
 
         }   catch (IOException e){
-            throw new AppException();//TODO write exception
+            throw new AppException(Const.INCORRECT_FILE + encryptedFileName, e);//TODO write exception
         }
 
         return spaceSum;

@@ -1,6 +1,7 @@
 package ru.javarush.zakharov.cryptoanalizer.controllers;
 
 import ru.javarush.zakharov.cryptoanalizer.commands.*;
+import ru.javarush.zakharov.cryptoanalizer.constants.Const;
 import ru.javarush.zakharov.cryptoanalizer.exceptions.AppException;
 
 public enum Actions {
@@ -21,7 +22,8 @@ public enum Actions {
             Actions value = Actions.valueOf(actionName.toUpperCase());
             return value.action;
         } catch (IllegalArgumentException e){
-            throw new AppException();
+            String message = String.format(Const.NOT_FOUND_ACTION_FORMAT, actionName);
+            throw new AppException(message, e);
         }
     }
 }
